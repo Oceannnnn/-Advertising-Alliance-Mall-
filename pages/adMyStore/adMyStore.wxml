@@ -1,0 +1,66 @@
+<!--pages/adMyStore/adMyStore.wxml-->
+<view class='bg_fe9 page'>
+  <view class='p_40 broker_top'>
+    <view class='broker_header flex_i f_34'>
+      <image src='{{pic}}'></image>
+      {{name}}
+      <view class='enter c_f ml_20' bindtap='bindadMold' wx:if="{{stick!=1}}">立即创建店铺</view>
+    </view>
+    <view class='f_28 c_999 mt_20'>总访问量
+      <text class='c_ea5'>{{visits}}</text>
+    </view>
+    <view class='f_28 c_999 mt_20'>总收藏数
+      <text class='c_ea5'>{{collection}}</text>
+    </view>
+  </view>
+  <view class='broker_bottom'></view>
+</view>
+<view class='con bg_f'>
+  <view class='f_32 bor_b p_40'>管理与设置</view>
+  <view class='my_footer f_30 flex_f'>
+    <view class="nav-item pr flex_af">
+      <form report-submit='true' class='formBtn' bindsubmit='{{stick==1?"adMold":"bindadMold"}}'>
+        <button class='formBtn' form-type='submit'></button>
+      </form>
+      <view class='flex_af'>
+        <view class='item1 flex_faj mb_20 item'>
+          <i class="iconfont icon-daipingjia20 c_f"></i>
+        </view>
+        <view>发布动态</view>
+      </view>
+    </view>
+    <view class="nav-item pr flex_af">
+      <form report-submit='true' class='formBtn' bindsubmit='{{stick==1?"adStore":"bindadMold"}}' data-id="{{st_id}}">
+        <button class='formBtn' form-type='submit'></button>
+      </form>
+      <view class='flex_af'>
+        <view class='item2 flex_faj mb_20 item'>
+          <i class="iconfont icon-dianpu c_f"></i>
+        </view>
+        <view>查看店铺</view>
+      </view>
+    </view>
+    <view class="nav-item pr flex_af">
+      <form report-submit='true' class='formBtn' bindsubmit='{{stick==1?"adSettled":"bindadMold"}}'>
+        <button class='formBtn' form-type='submit'></button>
+      </form>
+      <view class='flex_af'>
+        <view class='item3 flex_faj mb_20 item'>
+          <i class="iconfont icon-dianpu c_f"></i>
+        </view>
+        <view>编辑店铺</view>
+      </view>
+    </view>
+    <!-- <view class="nav-item pr flex_af">
+      <form report-submit='true' class='formBtn' bindsubmit='{{stick==1?"adStick":"bindadMold"}}'>
+        <button class='formBtn' form-type='submit'></button>
+      </form>
+      <view class='flex_af'>
+        <view class='item4 flex_faj mb_20 item'>
+          <i class="iconfont icon-emiguanyuwomen c_f"></i>
+        </view>
+        <view>置顶店铺</view>
+      </view>
+    </view> -->
+  </view>
+</view>

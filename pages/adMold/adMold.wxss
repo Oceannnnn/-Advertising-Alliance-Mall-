@@ -1,0 +1,5 @@
+/* pages/adMold/adMold.wxss */
+@import '../serviceType/serviceType.wxss';
+page{
+  background: #fff;
+}

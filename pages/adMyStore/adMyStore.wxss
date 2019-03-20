@@ -1,0 +1,70 @@
+/* pages/adMyStore/adMyStore.wxss */
+@import "../../font/iconfont.wxss";
+
+page {
+  background: #f3f3f3;
+}
+
+.page {
+  position: relative;
+  height: 380rpx;
+}
+
+.broker_top {
+  background: #fff;
+  border-radius: 10rpx;
+  /* box-shadow: 1px 1px 8px #999; */
+  width: 80%;
+  z-index: 100;
+  position: absolute;
+  top: 20rpx;
+  left: 5%;
+}
+
+.broker_header image {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50%;
+  margin: 0 20rpx 10rpx 0;
+}
+
+.broker_bottom {
+  width: 100%;
+  height: 190rpx;
+  position: absolute;
+  top: 200rpx;
+  background: #f3f3f3;
+}
+
+.con {
+  width: 90%;
+  border-radius: 20rpx;
+  margin: 0 auto;
+}
+
+.my_footer .nav-item {
+  width: 33.33%;
+  padding: 30rpx 0;
+}
+
+.my_footer .nav-item .iconfont {
+  font-size: 40rpx;
+}
+.item{
+  padding: 5rpx;
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 10rpx;
+}
+.item1 {
+  background: #64a1fd;
+}
+.item2 {
+  background: #FEA046;
+}
+.item3 {
+  background: #FCC02C;
+}
+.item4 {
+  background: #F75A6B;
+}

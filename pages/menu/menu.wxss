@@ -1,0 +1,49 @@
+/* pages/menu/menu.wxss */
+
+.menu {
+    background: #fff;
+}
+
+.menu swiper {
+    height: 350rpx;
+}
+
+.menu-box {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 24rpx 12rpx 0;
+}
+
+.menu-box .item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20%;
+    overflow: hidden;
+    margin-bottom: 20rpx;
+}
+
+.menu-box .item image {
+    display: block;
+    width: 85rpx;
+    height: 85rpx;
+    max-width: 100%;
+    margin: 0 auto 6rpx;
+}
+
+.menu-box .item view {
+    box-sizing: border-box;
+    width: 100%;
+    font-size: 12px;
+    padding: 0 12rpx;
+}
+
+.menu-box .item text {
+    display: block;
+    text-align: center;
+    color: #616161;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

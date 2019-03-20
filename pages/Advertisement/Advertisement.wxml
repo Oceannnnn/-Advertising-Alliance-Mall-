@@ -1,0 +1,114 @@
+<!--pages/Advertisement/Advertisement.wxml-->
+<view class='main_header pr'>
+  <view class='f_28 c_f flex_i'>
+    <view class='search ad'>
+      <navigator class='searchBox flex_i f_28' url='../search/search?type=3'>
+        <i class="iconfont icon-sousuo mr_20 ml_20"></i>
+        搜索
+      </navigator>
+    </view>
+    <view bindtap="selectDistrict" class='location'>{{location}}></view>
+    <view class="animation-element-wrapper" animation="{{animationAddressMenu}}" style="visibility:{{addressMenuIsShow ? 'visible':'hidden'}}">
+      <view class="picker-view">
+        <view class='bor_b w100 p_40 flex_cb c_999'>
+          <view catchtap="cityCancel" class='ml_20'>取消</view>
+          <view catchtap="citySure" class='mr_20'>确定</view>
+        </view>
+        <picker-view style="width: 100%; height: 300px;" bindchange="cityChange" value="{{value}}" wx:key="">
+          <picker-view-column>
+            <view wx:for="{{provinces}}" class="picker-item" wx:key="">
+              {{item.name}}</view>
+          </picker-view-column>
+          <picker-view-column>
+            <view wx:for="{{citys}}" class="picker-item" wx:key="">
+              {{item.name}}</view>
+          </picker-view-column>
+        </picker-view>
+      </view>
+    </view>
+  </view>
+  <swiper indicator-dots interval="3000" duration="1000" autoplay='true' circular indicator-color="rgba(0, 0, 0, .2)" indicator-active-color="#ffffff">
+    <block wx:for="{{imgUrls}}" wx:key="{{itemName}}" wx:for-item="itemName">
+      <swiper-item>
+        <image src="{{itemName.image}}" class="slide-image" data-id="{itemName.st_id}}" />
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+<view class='menu f_28'>
+  <swiper indicator-dots indicator-color="rgba(0, 0, 0, .2)" indicator-active-color="#FE9944">
+    <block wx:for="{{cate}}" wx:for-item="itemGroup" wx:key="cate">
+      <swiper-item>
+        <view class='menu-box flex_f'>
+          <block wx:for="{{itemGroup.item}}" wx:for-item="item" wx:key="itemGroup">
+            <view class='item flex_af pr'>
+              <form report-submit='true' class='formBtn' bindsubmit='bindtapStoreList' data-id="{{item.id}}">
+                <button class='formBtn' form-type='submit'></button>
+              </form>
+              <image mode='aspectFill' src='{{item.cate_img}}'></image>
+              <text class='sheng mt_10'>{{item.cate_name}}</text>
+            </view>
+          </block>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+<view class='flex_i text_body mb_20'>
+  <i class="iconfont icon-gonggao mr_20 ml_20"></i>
+  <swiper interval="3000" duration="1000" autoplay='true' circular vertical>
+    <block wx:for="{{textList}}" wx:key="{{itemName}}" wx:for-item="itemName">
+      <swiper-item>
+        <text class='sheng f_28' bindtap='bindNotice' data-id='{{itemName.id}}' data-type='1'>{{itemName.title}}</text>
+      </swiper-item>
+    </block>
+  </swiper>
+  <image class="arrow ml_20" src="../../images/last_Dawn.png"></image>
+</view>
+<view class='f_32 flex_faj' wx:if="{{storeList!=''}}">
+  - 推荐商家 -
+</view>
+<view class='flex_i p_20 f_28 pr' wx:if="{{storeList!=''}}">
+  <swiper interval="3000" duration="1000" autoplay='true' circular class='w100 storeList'>
+    <block wx:for="{{storeList}}" wx:key="{{itemName}}" wx:for-item="itemName">
+      <swiper-item>
+        <view class="collage_scroll ad_tuilist" scroll-x style="width: 100%">
+          <view class="pr storeListItem {{idx>0?'ml_20':''}}" wx:for-index="idx" wx:for="{{itemName.item}}" wx:key="">
+            <form report-submit='true' class='formBtn' bindsubmit='bindtapStore' data-id='{{item.st_id}}'>
+              <button class='formBtn' form-type='submit'></button>
+            </form>
+            <image src="{{item.st_pic}}" class="ad_image" mode='aspectFill'></image>
+            <view class='mt_10 sheng'>{{item.st_name}}</view>
+          </view>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+<view class='flex_cb p_20 f_30 bor_t bor_b'>
+  <view class='flex adlist'>
+    <view wx:for="{{ad_list}}" wx:key class="ad_list {{item.id == currentId ? 'on' : ''}}" bindtap='bindtapAd' data-id='{{item.id}}' data-type='{{item.type}}'>{{item.text}}</view>
+    <view bindtap='bindNotice' data-type='2' data-id=''>温馨提示</view>
+  </view>
+  <view class='enter c_f pr'>
+    加盟申请
+    <button class='formBtn' open-type="getUserInfo" bindgetuserinfo='bindEnter' data-id='1'></button>
+  </view>
+</view>
+<view class='flex p_20 bor_bom10 pr' wx:for="{{adList}}" wx:key="">
+  <button class='formBtn' open-type="getUserInfo" bindgetuserinfo='bindtapStore' data-id='{{item.st_id}}'></button>
+  <image src='{{item.st_pic}}' class='detailsImage' mode='aspectFill'></image>
+  <view class='detailsRight ml_20'>
+    <view class='flex_i'>
+      <view wx:if="{{item.is_stick==1}}" class='ding c_f f_28 b_e83 mr_20'>顶</view>
+      <view class='sheng f_34'>{{item.st_name}}</view>
+    </view>
+    <view class='f_28 c_999 flex_cb mt_10 mb_10'>
+      <view>{{item.st_visitor}}浏览</view>
+      <view>{{item.distance}}km</view>
+    </view>
+    <view class='bor_t f_30 zuixin' wx:if="{{1!=1}}">
+      最新发布：
+    </view>
+  </view>
+</view>

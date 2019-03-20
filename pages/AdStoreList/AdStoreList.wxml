@@ -1,0 +1,49 @@
+<!--pages/AdStoreList/AdStoreList.wxml-->
+<view class='flex_cb f_30 bor_b adHeader bg_f'>
+  <view class='flex adlist'>
+    <view wx:for="{{ad_list}}" wx:key class="ad_list {{item.id == currentId ? 'on' : ''}}" bindtap='bindtapAd' data-id='{{item.id}}' data-type='{{item.type}}'>{{item.text}}</view>
+  </view>
+  <view class='c_f'>
+    <view bindtap="selectDistrict" class='enter flex_i'>
+      <i class="iconfont icon-iconfontunie65c mr_20"></i>{{location}}</view>
+    <view class="animation-element-wrapper" animation="{{animationAddressMenu}}" style="visibility:{{addressMenuIsShow ? 'visible':'hidden'}}">
+      <view class="picker-view">
+        <view class='bor_b w100 p_40 flex_cb c_999'>
+          <view catchtap="cityCancel" class='ml_20'>取消</view>
+          <view catchtap="citySure" class='mr_20'>确定</view>
+        </view>
+        <picker-view style="width: 100%; height: 300px;" bindchange="cityChange" value="{{value}}" wx:key="">
+          <picker-view-column>
+            <view wx:for="{{provinces}}" class="picker-item" wx:key="">
+              {{item.name}}</view>
+          </picker-view-column>
+          <picker-view-column>
+            <view wx:for="{{citys}}" class="picker-item" wx:key="">
+              {{item.name}}</view>
+          </picker-view-column>
+        </picker-view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='AdStoreListbody'>
+  <view class='flex p_20 bor_bom10 pr' wx:for="{{adList}}" wx:key="">
+    <form report-submit='true' class='formBtn' bindsubmit='bindtapStore' data-id='{{item.st_id}}'>
+      <button class='formBtn' form-type='submit'></button>
+    </form>
+    <image src='{{item.st_pic}}' class='detailsImage'></image>
+    <view class='detailsRight ml_20'>
+      <view class='flex_i'>
+        <view wx:if="{{item.is_stick==1}}" class='ding c_f f_28 b_e83 mr_20'>顶</view>
+        <view class='sheng f_34'>{{item.st_name}}</view>
+      </view>
+      <view class='f_28 c_999 flex_cb mt_10 mb_10'>
+        <view>{{item.st_visitor}}浏览</view>
+        <view>{{item.distance}}km</view>
+      </view>
+      <view class='bor_t f_30 zuixin' wx:if="{{1!=1}}">
+        最新发布：
+      </view>
+    </view>
+  </view>
+</view>

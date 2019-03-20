@@ -1,0 +1,148 @@
+/* pages/Advertisement/Advertisement.wxss */
+@import "../index/index.wxss";
+
+.main_header swiper {
+  height: 310rpx;
+}
+
+.menu swiper {
+  height: 350rpx;
+}
+
+swiper.storeList {
+  height: 200rpx;
+}
+
+.menu-box {
+  padding: 24rpx 12rpx 0;
+}
+
+.menu-box .item {
+  width: 20%;
+  overflow: hidden;
+  margin-bottom: 20rpx;
+}
+
+.menu-box .item image {
+  display: block;
+  width: 80rpx;
+  height: 80rpx;
+  max-width: 100%;
+  margin: 0 auto 6rpx;
+}
+
+.menu-box .item view {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 12rpx;
+}
+
+.ad_image {
+  width: 224rpx;
+  height: 150rpx;
+  border-radius: 10rpx;
+}
+
+.ad_list {
+  width: 33%;
+}
+
+.ad_list.on {
+  color: #fe9944;
+  font-weight: 600;
+}
+
+.adlist {
+  width: 70%;
+}
+
+.detailsRight {
+  width: 80%;
+}
+
+.detailsImage {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 10rpx;
+}
+
+.zuixin {
+  padding: 10rpx 0;
+}
+
+.location {
+  z-index: 10;
+  position: absolute;
+  right: 20rpx;
+  top: 20rpx;
+  padding: 10rpx 25rpx;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 30rpx;
+}
+
+.animation-element-wrapper {
+  display: flex;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+}
+
+.picker-view {
+  width: 100%;
+  display: flex;
+  z-index: 12;
+  background-color: #fff;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0rpx;
+  left: 0rpx;
+  height: 40vh;
+}
+
+.picker-item {
+  line-height: 70rpx;
+  margin-left: 5rpx;
+  margin-right: 5rpx;
+  text-align: center;
+  color: #555;
+}
+
+.ding {
+  padding: 5rpx;
+  border-radius: 10rpx;
+}
+
+.dynamic_img {
+  width: 226rpx;
+  height: 226rpx;
+}
+
+.AdStoreListbody {
+  margin-top: 100rpx;
+}
+
+.adHeader {
+  width: 94%;
+  position: fixed;
+  top: 0;
+  left: 3%;
+  padding: 20rpx 0;
+}
+
+.ad_tuilist {
+  width: 33.33%;
+  display: flex;
+}
+
+.main_header.on {
+  margin-top: 100rpx;
+}
+.storeListItem{
+  width: 224rpx;
+}

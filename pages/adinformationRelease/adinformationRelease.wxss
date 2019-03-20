@@ -1,0 +1,12 @@
+/* pages/adinformationRelease/adinformationRelease.wxss */
+@import "../AdSettled/AdSettled.wxss";
+.textarea1{
+  height: 200rpx;
+}
+.textarea2{
+  height: 150rpx;
+}
+.upload {
+  width: 158rpx;
+  height: 158rpx;
+}

@@ -1,0 +1,37 @@
+/* pages/adStore/adStore.wxss */
+@import "../Advertisement/Advertisement.wxss";
+.adStoreText{
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: rgba(0, 0, 0, .5);
+  padding: 10rpx 20rpx;
+  z-index: 10;
+}
+.enter.on{
+  background: #C4CCD6;
+}
+.store_img{
+  width: 120rpx;
+  height: 120rpx;
+}
+.icon{
+  width: 60rpx;
+  height: 60rpx;
+  border: 1px solid #D7D7D7;
+  border-radius: 50%;
+  padding: 10rpx;
+}
+.store_item{
+  margin-left: 50rpx;
+}
+.store_footer{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 30rpx 0;
+  text-align: center;
+}
+.icon-duihua{
+  font-size: 50rpx;
+}

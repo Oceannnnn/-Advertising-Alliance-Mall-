@@ -1,0 +1,5 @@
+/* pages/AdStoreList/AdStoreList.wxss */
+@import "../Advertisement/Advertisement.wxss";
+.iconfont {
+  font-size: 30rpx;
+}

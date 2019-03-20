@@ -1,0 +1,5 @@
+/* pages/adDynamicList/adDynamicList.wxss */
+@import "../adInformation/adInformation.wxss";
+.adHeader{
+  width: 100%;
+}

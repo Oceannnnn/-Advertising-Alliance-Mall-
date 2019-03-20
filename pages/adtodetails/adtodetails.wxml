@@ -1,0 +1,43 @@
+<!--pages/adtodetails/adtodetails.wxml-->
+<view class='blankBottom'>
+  <view class='p_20 flex_cb f_32 bor_bom' data-id='{{info.st_id}}' catchtap='bindtapStore'>
+    <view class='flex'>
+      <image src='{{info.st_pic}}' class='store_img mr_20' mode='aspectFill'></image>
+      <view>
+        {{info.st_name}}
+        <view class='mt_10 c_999 f_30'>{{info.add_time}}</view>
+      </view>
+    </view>
+    <image class="icon" src="../../images/call.png" catchtap='toCall' data-mobile="{{info.phone}}" />
+  </view>
+  <view class='p_20 bor_bom'>
+    <view wx:for="{{info.image}}" wx:key="">
+      <image src='{{item.image}}' class='w100 mb_20' mode='widthFix' data-index='{{index}}' bindtap='previewImg' data-arr="{{info.image}}"></image>
+    </view>
+    <view class='mt_20 f_28 c_5e8'>{{info.address}}</view>
+    <view class='mt_20 f_28 c_999'>浏览{{info.reading}}次</view>
+  </view>
+  <view class='flex_i p_20 f_30 bor_b tc'>
+    <view wx:for="{{ad_list}}" wx:key class="ad_list {{item.id == currentId ? 'on' : ''}}" bindtap='bindtapAd' data-id='{{item.id}}' data-type='{{item.type}}'>{{item.text}}</view>
+  </view>
+  <view class='p_20' wx:if="{{list}}">
+    <view wx:for="{{list}}" wx:key="" class='bor_b {{currentId==1?"flex":"flex_i"}} p_20'>
+      <image src='{{item.head_img}}' class='icon'></image>
+      <view class='f_32 ml_20'>
+        <view class='name mb_10'>{{item.nick_name}}</view>
+        <view class='mb_10 f_30 c_999' wx:if="{{currentId==1}}">{{item.comment}}</view>
+        <view class='f_28 c_999 mt_20' wx:if="{{currentId==1}}">{{item.add_time}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='flex_i footer_ad bor_t bg_f'>
+  <input placeholder='写评论' class='ad_input ml_20 f_30' bindconfirm='add_plun' data-head_img='{{info.head_img}}' data-id='{{info.id}}' value='{{value}}' data-nick_name='{{info.nick_name}}'></input>
+  <view class='ml_20' catchtap='collect' data-collect="{{has_zan}}" data-id='{{info.id}}' data-head_img='{{info.head_img}}' data-nick_name='{{info.nick_name}}'>
+    <i class="iconfont icon-shoucang {{has_zan == 1?'c_ea5':''}}"></i>
+  </view>
+  <view class='pr ml_20'>
+    <button open-type='share' class='formBtn'></button>
+    <i class="iconfont icon-fenxiang"></i>
+  </view>
+</view>

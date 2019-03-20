@@ -1,0 +1,93 @@
+<!--pages/adStore/adStore.wxml-->
+<view class='blankBottom'>
+  <view class='main_header pr'>
+    <view class='f_28 c_f flex_i adStoreText'>
+      {{imgUrls.length}}张图
+    </view>
+    <swiper indicator-dots interval="3000" duration="1000" autoplay='true' circular indicator-color="rgba(0, 0, 0, .2)" indicator-active-color="#ffffff">
+      <block wx:for="{{imgUrls}}" wx:key="{{itemName}}" wx:for-item="itemName" wx:for-index="idx" wx:if="{{idx<5}}">
+        <swiper-item>
+          <image src="{{itemName.img_url}}" class="slide-image" mode='aspectFill' />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class='p_40 f_34 pr flex_faj bor_b bor_t'>
+    {{info.st_name}}
+  </view>
+  <view class='p_20 flex_i f_30 bor_bom' bindtap='toPosition'>
+    <i class="iconfont icon-iconfontunie65c mr_20"></i>
+    <view class='sheng'>
+      {{info.st_address}}
+    </view>
+  </view>
+  <view class='p_20 flex_cb f_32 bor_bom'>
+    <view class='flex'>
+      <image src='{{info.st_pic}}' class='store_img mr_20' mode='aspectFill'></image>
+      <view>
+        欢迎光临，我是店主
+        <view class='mt_10 c_999 f_30'>立即咨询店主->-></view>
+      </view>
+    </view>
+    <image class="icon" src="../../images/call.png" bindtap='toCall' />
+  </view>
+  <view wx:if="{{dynamicList!=''}}" class='bor_bom'>
+    <view class='p_20 flex_faj f_34 bor_b'>- 商家动态 -</view>
+    <view wx:for="{{dynamicList}}" wx:key="" wx:for-index="idx" wx:for-item="item" class='{{idx==0?"":"bor_top10"}} p_20 f_30' data-id='{{item.id}}' catchtap='todetails'>
+      <view class='c_999'>#{{item.cate_name}}#</view>
+      <view class='sheng2 mb_20'>{{item.title}}</view>
+      <view class='flex_f mb_20' wx:if="{{item.imgbox!=''}}">
+        <image class='dynamic_img {{index==0?"":"ml_10"}}' wx:for-item="imgboxName" src='{{imgboxName.image}}' wx:for="{{item.imgbox}}" wx:key="" wx:for-index="index" data-index='{{index}}' catchtap='previewImg' data-type="0" data-arr="{{item.imgbox}}" wx:if="{{index<3}}"></image>
+      </view>
+      <view wx:if="{{item.content}}" class='sheng2 mb_20'>{{item.content}}</view>
+      <view class='sheng f_28 c_5e8'>{{item.address}}</view>
+      <view class='c_999 f_28 flex_cb bor_t p_20 mt_20'>
+        浏览{{item.reading}}次
+        <view class='flex_i'>
+          <view class='flex_i'>
+            <i class="iconfont icon-shoucang mr_10"></i>{{item.zan}}
+          </view>
+          <view class='flex_i ml_20'>
+            <i class="iconfont icon-daipingjia20 mr_10"></i>{{item.c_num}}
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='p_20 flex_faj f_34 bor_b'>- 商家介绍 -</view>
+  <view class='p_20 f_28'>
+    <view class='flex_i mb_20'>
+      <view class='mr_20' wx:if="{{info.is_wifi==1}}">wifi</view>
+      <view class='mr_20' wx:if="{{info.is_park==1}}">停车场</view>
+      <view class='mr_20' wx:if="{{info.is_zfb_pay==1}}">支付宝支付</view>
+      <view class='mr_20' wx:if="{{info.is_wx_pay==1}}">微信支付</view>
+    </view>
+    <view class='mb_20'>
+      营业时间：{{info.open_time}}
+    </view>
+    <view class='mb_20'></view>
+    <view class='mb_20'>
+      {{info.st_content}}
+    </view>
+    <view wx:for="{{imgUrls}}" wx:key="">
+      <image src='{{item.img_url}}' class='w100 mb_20' mode='widthFix' data-type="1" data-index='{{index}}' bindtap='previewImg' data-arr="{{imgUrls}}"></image>
+    </view>
+  </view>
+</view>
+<view class='store_footer bor_t w100 f_30 bg_f flex_cb'>
+  <!-- <view class='store_item flex_i'>
+    <i class="iconfont icon-dianpu mr_20"></i>商家信息
+  </view> -->
+  <view class='store_item flex_i' bindtap='adDynamicList' data-st_id='{{info.st_id}}'>
+    <i class="iconfont icon-duihua mr_20"></i>动态
+  </view>
+  <view class='flex_i mr_20'>
+    <view class='enter {{collect==1?"on":""}} c_f' hidden='{{info.is_my==1?true:false}}' bindtap='collectStore'>
+      <text wx:if="{{collect==0}}">收藏</text>
+      <text wx:else>已收藏</text>
+    </view>
+  <view class='enter c_f ml_20' bindtap='toCall'>
+    聊一聊
+  </view>
+  </view>
+</view>

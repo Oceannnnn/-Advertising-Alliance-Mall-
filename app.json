@@ -1,0 +1,108 @@
+{
+  "pages": [
+    "pages/Advertisement/Advertisement",
+    "pages/allorder/allorder",
+    "pages/AdSettled/AdSettled",
+    "pages/adShop/adShop",
+    "pages/adNotice/adNotice",
+    "pages/toLogin/toLogin",
+    "pages/adInformation/adInformation",
+    "pages/adtodetails/adtodetails",
+    "pages/adDynamicList/adDynamicList",
+    "pages/adStore/adStore",
+    "pages/adinformationRelease/adinformationRelease",
+    "pages/adMyStore/adMyStore",
+    "pages/adMold/adMold",
+    "pages/adStick/adStick",
+    "pages/adHomeDecoration/adHomeDecoration",
+    "pages/menu/menu",
+    "pages/AdStoreList/AdStoreList",
+    "pages/index/index",
+    "pages/chat/chat",
+    "pages/courier/courier",
+    "pages/detailsRefund/detailsRefund",
+    "pages/my/my",
+    "pages/secKill/secKill",
+    "pages/distributionTeam/distributionTeam",
+    "pages/distributionMoney/distributionMoney",
+    "pages/distribution/distribution",
+    "pages/goodsDetails/goodsDetails",
+    "pages/search/search",
+    "pages/store/store",
+    "pages/refund/refund",
+    "pages/chatList/chatList",
+    "pages/storeClassify/storeClassify",
+    "pages/smallRoutine/smallRoutine",
+    "pages/serviceType/serviceType",
+    "pages/logistics/logistics",
+    "pages/confirmationOrder/confirmationOrder",
+    "pages/comment/comment",
+    "pages/consumer/consumer",
+    "pages/balance/balance",
+    "pages/recharge/recharge",
+    "pages/distributionQRCode/distributionQRCode",
+    "pages/distributionCommission/distributionCommission",
+    "pages/distributionExpressive/distributionExpressive",
+    "pages/classify/classify",
+    "pages/listPage/listPage",
+    "pages/record/record",
+    "pages/coupons/coupons",
+    "pages/useCoupon/useCoupon",
+    "pages/orderDetails/orderDetails",
+    "pages/collage/collage",
+    "pages/cart/cart",
+    "pages/myadd/myadd",
+    "pages/collection/collection",
+    "pages/payResults/payResults",
+    "pages/distributionIllustrate/distributionIllustrate",
+    "pages/about/about"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "广告企业联盟平台",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#989898",
+    "backgroundColor": "#fff",
+    "selectedColor": "#333333",
+    "list": [
+      {
+        "pagePath": "pages/Advertisement/Advertisement",
+        "text": "广告联盟",
+        "iconPath": "images/index.png",
+        "selectedIconPath": "images/index_active.png"
+      },
+      {
+        "pagePath": "pages/adHomeDecoration/adHomeDecoration",
+        "text": "家装联盟",
+        "iconPath": "images/classify.png",
+        "selectedIconPath": "images/classify_active.png"
+      },
+      {
+        "pagePath": "pages/adInformation/adInformation",
+        "text": "信息发布",
+        "iconPath": "images/xinxi.png",
+        "selectedIconPath": "images/xinxi_active.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "联盟商城",
+        "iconPath": "images/cart.png",
+        "selectedIconPath": "images/cart_active.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "个人中心",
+        "iconPath": "images/my.png",
+        "selectedIconPath": "images/my_active.png"
+      }
+    ]
+  }
+}

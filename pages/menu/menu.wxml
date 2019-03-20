@@ -1,0 +1,19 @@
+<!--pages/menu/menu.wxml-->
+<view class='menu'>
+    <swiper indicator-dots indicator-color="#eee" indicator-active-color="#fd5a39">
+        <block wx:for="{{menuListData}}" wx:for-item="itemGroup" wx:key="menuListData">
+            <swiper-item>
+                <view class='menu-box'>
+                    <block wx:for="{{itemGroup}}" wx:for-item="item" wx:key="itemGroup">
+                        <view class='item' data-id="{{item.id}}" bindtap='onMenuTap'>
+                            <image mode='aspectFill' src='{{item.img}}'></image>
+                            <view>
+                                <text>{{item.title}}</text>
+                            </view>
+                        </view>
+                    </block>
+                </view>
+            </swiper-item>
+        </block>
+    </swiper>
+</view>

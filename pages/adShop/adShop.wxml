@@ -1,0 +1,36 @@
+<!--pages/adShop/adShop.wxml-->
+<view class='f_34 p_40 bg_fe9 c_f'>
+  <text wx:if="{{store_status==3}}">欢迎入驻</text>
+  <text wx:if="{{store_status==0}}">审核中请耐心等待</text>
+  <text wx:if="{{store_status==1}}">审核成功</text>
+</view>
+<view wx:if="{{store_status==3}}">
+  <view class='p_20 flex_i f_32 bor_bom10'>
+    <view class='input_left'>店铺名称</view>
+    <input placeholder='请输入店铺名称' class='input ml_20 sheng f_28' value='{{store_name}}' bindinput='bindStore_name'></input>
+  </view>
+  <view class='p_20 flex_i f_32 bor_b'>
+    <view class='input_left'>登入账号</view>
+    <input placeholder='请输入账号' class='input ml_20 sheng f_28' value='{{name}}' bindinput='bindName'></input>
+  </view>
+  <view class='p_20 flex_i f_32 bor_bom10'>
+    <view class='input_left'>密码</view>
+    <input placeholder='请输入密码' class='input ml_20 sheng f_28' type='password' value='{{password}}' bindinput='bindPassword'></input>
+  </view>
+  <view class='p_20 flex_cb f_32 bor_bom10'>
+    入驻费用
+    <view class='f_30'>免费</view>
+  </view>
+  <navigator class='p_20 flex_cb f_28' url='../about/about'>
+    注：如有问题请联系客服
+  </navigator>
+  <view class='button bg_fe9 c_f f_32 w100'>
+    <form report-submit='true' class='formBtn' bindsubmit='bindtap'>
+      <button class='formBtn' form-type='submit'></button>
+    </form>
+    提交
+  </view>
+</view>
+<view class='p_20' wx:if="{{store_status==1}}">
+  <text selectable="true">{{domain}}</text>
+</view>

@@ -1,0 +1,2 @@
+/* pages/adShop/adShop.wxss */
+@import "../AdSettled/AdSettled.wxss";

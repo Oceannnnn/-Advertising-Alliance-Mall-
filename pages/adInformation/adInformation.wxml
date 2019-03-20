@@ -1,0 +1,86 @@
+<!--pages/adInformation/adInformation.wxml-->
+<view class='main_header pr'>
+  <swiper indicator-dots interval="3000" duration="1000" autoplay='true' circular indicator-color="rgba(0, 0, 0, .2)" indicator-active-color="#ffffff">
+    <block wx:for="{{imgUrls}}" wx:key="{{itemName}}" wx:for-item="itemName">
+      <swiper-item>
+        <image src="{{itemName.image}}" class="slide-image" />
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+<view class='menu f_28'>
+  <swiper indicator-dots indicator-color="rgba(0, 0, 0, .2)" indicator-active-color="#FE9944">
+    <block wx:for="{{cate}}" wx:for-item="itemGroup" wx:key="cate">
+      <swiper-item>
+        <view class='menu-box flex_f'>
+          <block wx:for="{{itemGroup.item}}" wx:for-item="item" wx:key="itemGroup">
+            <view class='item flex_af pr'>
+              <form report-submit='true' class='formBtn' bindsubmit='bindtapDynamic' data-id="{{item.id}}">
+                <button class='formBtn' form-type='submit'></button>
+              </form>
+              <image mode='aspectFill' src='{{item.cate_img}}'></image>
+              <text class='sheng mt_10'>{{item.cate_name}}</text>
+            </view>
+          </block>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+<view class='flex_i p_20 f_30 bor_t bor_b tc'>
+  <view wx:for="{{ad_list}}" wx:key class="ad_list {{item.id == currentId ? 'on' : ''}}" bindtap='bindtapAd' data-id='{{item.id}}' data-type='{{item.type}}'>{{item.text}}</view>
+</view>
+<view wx:for="{{dynamicList}}" wx:key="" wx:for-index="idx" class='{{idx==0?"":"bor_top10"}} p_20 f_30 bor_bom'>
+  <view class='flex_cb' catchtap='todetails' data-id='{{item.id}}'>
+    <view class='flex mb_20'>
+      <image class='detailsImage mr_20' src='{{item.st_pic}}'></image>
+      <view>
+        <view class='sheng'>{{item.st_name}}</view>
+        <view class='c_999 f_28'>{{item.add_time}}</view>
+      </view>
+    </view>
+    <view data-mobile='{{item.phone}}' catchtap="toCall">
+      <i class="iconfont icon-duihua c_f68"></i>
+    </view>
+  </view>
+  <view class='sheng2 mb_20'>
+    <text class='c_999'>#{{item.cate_name}}#</text>{{item.title}}
+  </view>
+  <view class='flex_f' wx:if="{{item.imgbox!=''}}">
+    <image class='dynamic_img {{index==0||index==3||index==6?"":"ml_10"}} mb_10' src='{{imgboxName.image}}' wx:for="{{item.imgbox}}" wx:key="" wx:for-index="index" wx:for-item="imgboxName" data-index='{{index}}' catchtap='previewImg' data-arr="{{item.imgbox}}"
+      wx:if="{{index<9}}"></image>
+  </view>
+  <view wx:if="{{item.content}}" class='sheng2'>
+    {{item.content}}
+  </view>
+  <view class='c_5e8 f_28 sheng mt_20'>
+    {{item.address}}
+  </view>
+  <view class='c_999 f_28 flex_cb bor_b p_20'>
+    浏览{{item.reading}}次
+    <view class='flex_i'>
+      <view catchtap='collect' data-collect="{{item.is_zan}}" data-index='{{idx}}' data-id='{{item.id}}' data-head_img='{{item.head_img}}'>
+        <i class="iconfont icon-shoucang {{item.is_zan == 1?'c_ea5':''}}"></i>
+      </view>
+    </view>
+  </view>
+  <view class='flex_cb mt_20' wx:if="{{item.zan_img!=''}}">
+    <view class='flex_i'>
+      <view wx:for="{{item.zan_img}}" wx:key="" wx:if="{{zan_idx<8}}" wx:for-index="zan_idx" wx:for-item="zanName">
+        <image class='arrow mr_10' src='{{zanName.head_img}}'></image>
+      </view>
+    </view>
+    <view class='c_999 f_28' wx:if="{{item.zan_img.length>10}}">等{{item.zan_img.length}}人赞</view>
+  </view>
+  <view class='mt_20 f_28' wx:if="{{item.plun!=''}}">
+    <view class='sheng flex_i mb_10' wx:for="{{item.plun}}" wx:key="" wx:if="{{plun_idx<5}}" wx:for-index="plun_idx" wx:for-item="plunName">
+      <text class='c_999'>{{plunName.nick_name}}：</text> {{plunName.comment}}
+    </view>
+    <view class='c_999' wx:if="{{item.plun.length>5}}">等{{item.plun.length}}人评论</view>
+  </view>
+  <input class='input mt_20' placeholder='回复' bindconfirm='add_plun' data-index='{{idx}}' data-id='{{item.id}}' value='{{value}}' data-nick_name='{{item.nick_name}}'></input>
+</view>
+<view class='gouwuche bg_f tc c_f pr'>
+  <button class='formBtn' open-type="getUserInfo" bindgetuserinfo='adMold'></button>
+  <image src='../../images/fabu.png'></image>
+</view>

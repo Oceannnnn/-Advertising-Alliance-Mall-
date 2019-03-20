@@ -1,0 +1,57 @@
+<!--pages/adinformationRelease/adinformationRelease.wxml-->
+<view class='blankBottom'>
+  <view class='p_20 f_30 bor_bom10'>
+    <textarea placeholder='要发布的内容...' class='textarea1' value='{{st_title}}' bindinput='bindTitle'></textarea>
+  </view>
+  <view class='p_20 f_30 bor_bom10' wx:if="{{id==2}}">
+    <textarea placeholder='请输入文章内容' class='textarea2' value='{{st_content}}' bindinput='bindContent'></textarea>
+  </view>
+  <view class='p_20 flex f_32 bor_bom10' wx:else>
+    <view class='f_28 c_999'>请上传图片</view>
+    <view class='input ml_20'>
+      <view class='flex_f'>
+        <block wx:key="imgbox" wx:for="{{imgbox}}" wx:for-index="index">
+          <view class='pr mr_20 mb_20'>
+            <view class='upload pr on'>
+              <image class='img' src='{{item.image}}'></image>
+              <view class='img-de pr'>
+                <form report-submit='true' class='formBtn' bindsubmit='delImage' data-deindex='{{index}}'>
+                  <button class='formBtn' form-type='submit'></button>
+                </form>
+                <image class='img' src='../../images/cha.png'></image>
+              </view>
+            </view>
+          </view>
+        </block>
+        <view class='jia c_999 upload flex_faj c_999 on' bindtap='upload' wx:if="{{imgbox.length<9}}">
+          +
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='p_20 f_30 bor_bom10'>
+    <view class='p_20 flex_cb'>
+      <input placeholder='请输入店铺地址' class='sheng' value='{{st_address}}' bindtap='location'></input>
+      <image class="arrow" src="../../images/last_Dawn.png"></image>
+    </view>
+    <view class='p_20 bor_t'>
+      <input placeholder='请输入联系方式' class='input sheng' type='number' value='{{st_mobile}}' bindinput='bindMobile'></input>
+    </view>
+    <view class='p_20 flex_cb bor_t'>
+      <picker bindchange="bindCate" value="{{indexCate}}" range="{{cate}}" range-key="cate_name">
+        <view class="picker">
+          <text class='c_999' wx:if="{{!indexCate}}">请选择发布分类</text>{{cate[indexCate].cate_name}} </view>
+      </picker>
+      <image class="arrow" src="../../images/last_Dawn.png"></image>
+    </view>
+    <view class='p_20 flex_cb bor_t'>
+      发布费用
+      <view>免费</view>
+    </view>
+  </view>
+  <view class='p_20 flex_cb f_32 bor_bom10' hidden='hidden'>
+    我要置顶
+    <switch bindchange="bindStick" color="#fe9944" />
+  </view>
+</view>
+<view class='button bg_fe9 c_f f_32 w100' bindtap='bindtap'>立即发布</view>

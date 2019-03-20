@@ -1,0 +1,21 @@
+/* pages/adtodetails/adtodetails.wxss */
+@import "../adStore/adStore.wxss";
+.footer_ad{
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 20rpx 0;
+}
+.ad_input{
+  width: 70%;
+  border-radius: 10rpx;
+  padding: 10rpx;
+  border: 1px solid #eee;
+}
+.iconfont {
+  font-size: 60rpx;
+}
+.iconfont.icon-shoucang{
+  font-size: 50rpx;
+}
